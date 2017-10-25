@@ -16,20 +16,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>iOS开发中问题集合汇总 | Hexo</title>
-  <meta name="description" content="1.iOS11 UITableView 状态栏多出大小为20的空白区域解决办法  iOS11弃用了automaticallyAdjustsScrollViewInsets属性，新增contentInsetAdjustmentBehavior来替代它 //声明tableView的位置 添加下面代码 if (@available(iOS 11.0, *)) { ​      _tableView.co">
+  <title>iOS  objc_msgSend报错解决 | Hexo</title>
+  <meta name="description" content="1.先检查你的类中有没有引入  #import  &amp;lt; objc/message.h &amp;gt;  头文件 不要以为引入 #import &amp;lt; objc/runtime.h &amp;gt; 就包含全部了, 你错了.2.如果成功引入头文件编译还是报错, 这里有两个解决方案(1)第一种解决方案:在项目配置文件 -&amp;gt; Build Settings -&amp;gt; Enable Strict Checking o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发中问题集合汇总">
-<meta property="og:url" content="http://liuyihua2015.github.io/2017/10/20/iOS开发中问题集合汇总/index.html">
+<meta property="og:title" content="iOS  objc_msgSend报错解决">
+<meta property="og:url" content="http://liuyihua2015.github.io/2017/10/23/iOS objcmsgSend报错解决/index.html">
 <meta property="og:site_name" content="liuyihua&#39;s的修炼场">
-<meta property="og:description" content="1.iOS11 UITableView 状态栏多出大小为20的空白区域解决办法  iOS11弃用了automaticallyAdjustsScrollViewInsets属性，新增contentInsetAdjustmentBehavior来替代它 //声明tableView的位置 添加下面代码 if (@available(iOS 11.0, *)) { ​      _tableView.co">
+<meta property="og:description" content="1.先检查你的类中有没有引入  #import  &amp;lt; objc/message.h &amp;gt;  头文件 不要以为引入 #import &amp;lt; objc/runtime.h &amp;gt; 就包含全部了, 你错了.2.如果成功引入头文件编译还是报错, 这里有两个解决方案(1)第一种解决方案:在项目配置文件 -&amp;gt; Build Settings -&amp;gt; Enable Strict Checking o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-20T06:49:28.990Z">
+<meta property="og:updated_time" content="2017-10-23T03:51:15.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发中问题集合汇总">
-<meta name="twitter:description" content="1.iOS11 UITableView 状态栏多出大小为20的空白区域解决办法  iOS11弃用了automaticallyAdjustsScrollViewInsets属性，新增contentInsetAdjustmentBehavior来替代它 //声明tableView的位置 添加下面代码 if (@available(iOS 11.0, *)) { ​      _tableView.co">
+<meta name="twitter:title" content="iOS  objc_msgSend报错解决">
+<meta name="twitter:description" content="1.先检查你的类中有没有引入  #import  &amp;lt; objc/message.h &amp;gt;  头文件 不要以为引入 #import &amp;lt; objc/runtime.h &amp;gt; 就包含全部了, 你错了.2.如果成功引入头文件编译还是报错, 这里有两个解决方案(1)第一种解决方案:在项目配置文件 -&amp;gt; Build Settings -&amp;gt; Enable Strict Checking o">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://liuyihua2015.github.io/2017/10/20/iOS开发中问题集合汇总/index.html">
+  <link rel="canonical" href="http://liuyihua2015.github.io/2017/10/23/iOS objcmsgSend报错解决/index.html">
   
     <link rel="alternate" href="/atom.xml" title="liuyihua&#39;s的修炼场" type="application/atom+xml">
   
@@ -319,14 +319,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-iOS开发中问题集合汇总" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-iOS objcmsgSend报错解决" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发中问题集合汇总
+      iOS  objc_msgSend报错解决
     </h1>
   
 
@@ -334,8 +334,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/10/20/iOS开发中问题集合汇总/" class="article-date">
-	  <time datetime="2017-10-20T06:00:08.277Z" itemprop="datePublished">2017-10-20</time>
+	<a href="/2017/10/23/iOS objcmsgSend报错解决/" class="article-date">
+	  <time datetime="2017-10-23T03:39:21.593Z" itemprop="datePublished">2017-10-23</time>
 	</a>
 </span>
         
@@ -350,21 +350,24 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/10/20/iOS开发中问题集合汇总/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/10/23/iOS objcmsgSend报错解决/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <p>1.iOS11 UITableView 状态栏多出大小为20的空白区域解决办法</p>
-<p> iOS11弃用了automaticallyAdjustsScrollViewInsets属性，新增contentInsetAdjustmentBehavior来替代它</p>
-<p>//声明tableView的位置 添加下面代码</p>
-<p>if (@available(iOS 11.0, *)) {</p>
-<p>​      _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;</p>
-<p>​           _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);</p>
-<p>​           _tableView.scrollIndicatorInsets = _tableView.contentInset;</p>
-<p>  }</p>
+        <blockquote>
+<p>1.先检查你的类中有没有引入  #import  &lt; objc/message.h &gt;  头文件 不要以为引入 #import &lt; objc/runtime.h &gt; 就包含全部了, 你错了.<br>2.如果成功引入头文件编译还是报错, 这里有两个解决方案<br>(1)第一种解决方案:<br>在项目配置文件 -> Build Settings -> Enable Strict Checking of objc_msgSend Calls 这个字段设置为 NO,   默认为YES.  在编译你的项目就会发现问题解决了</p>
+</blockquote>
+<pre><code>Person *person = [[Person alloc]init];
+objc_msgSend(person, sel_registerName(&quot;say&quot;));
+objc_msgSend(person, @selector(say));
+</code></pre><p>(2)第二种解决方案:<br>由于objc_msgSend函数本身是无返回值无参数的函数, 所以要给它强制转换类型代码如下:</p>
+<pre><code>Person *person = [[Person alloc]init]; 
+((void (*) (id, SEL)) (void *)objc_msgSend)(person, sel_registerName(&quot;say&quot;)); 
+((void (*) (id, SEL)) (void *)objc_msgSend)(person, @selector(say));﻿
+</code></pre><p>这样也可以解决上述问题,<br>(3)@selector(say)和sel_registerName(“say”)  这两个其实是一样的 都是SEL</p>
 
       
     </div>
@@ -374,7 +377,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://liuyihua2015.github.io/2017/10/20/iOS开发中问题集合汇总/" title="iOS开发中问题集合汇总" target="_blank" rel="external">http://liuyihua2015.github.io/2017/10/20/iOS开发中问题集合汇总/</a>
+      <a href="http://liuyihua2015.github.io/2017/10/23/iOS objcmsgSend报错解决/" title="iOS  objc_msgSend报错解决" target="_blank" rel="external">http://liuyihua2015.github.io/2017/10/23/iOS objcmsgSend报错解决/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -422,13 +425,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2017/10/23/iOS objcmsgSend报错解决/" title="iOS  objc_msgSend报错解决"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2017/10/19/利用runtime,简单实现导航栏push页面的全屏返回/" title="利用runtime,简单实现导航栏push页面的全屏返回">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/10/20/iOS开发中问题集合汇总/" title="iOS开发中问题集合汇总">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>
